@@ -1,0 +1,58 @@
+body {
+    font-size: 12px;
+    font-family: "Microsoft YaHei", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Microsoft YaHei", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.btn {
+  border: 1px solid #FFF;
+}
+
+#product-logo {
+    height: 16px;
+}
+
+@media (min-width: 992px) {
+  .sidebar.compact,
+  .sidebar.compact.navbar-collapse {
+    width: 105px;
+  }
+  .sidebar.compact .sidebar-shortcuts {
+    max-height: 80px;
+  }
+  .sidebar.compact .nav-list > li:before {
+    height: auto;
+    bottom: -1px;
+  }
+  .sidebar.compact .nav-list > li > a {
+    height: auto;
+    line-height: 16px;
+    padding: 2px 0 8px;
+    text-align: center;
+  }
+  .sidebar.compact .nav-list > li > a > .menu-icon {
+    display: block;
+    margin: 0;
+    vertical-align: inherit;
+    line-height: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+  .sidebar.compact .nav-list > li > a > .arrow {
+    display: none;
+  }
+  .sidebar.compact .nav-list a .badge,
+  .sidebar.compact .nav-list a .label {
+    right: 12px;
+  }
+  .sidebar.compact .nav-list > li.active > .submenu,
+  .sidebar.compact .nav-list > li.open > .submenu {
+    display: none;
+  }
+  .sidebar.compact + .main-content {
+    margin-left: 105px;
+  }
+}

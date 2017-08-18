@@ -1,0 +1,31 @@
+html {
+  height: 100%;
+}
+body {
+  position: relative;
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  color: #757575;
+}
+#app {
+  position: relative;
+  height: 100%;
+}
+.grkj {
+  position: relative;
+  height: 100%;
+}
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+}
+/*右侧*/
+.main-content {
+  height: 100%;
+  margin-left: 300px;
+  background: #f2f5fa;
+}
+/*# sourceMappingURL=grkj.css.map */

@@ -1,0 +1,11 @@
+﻿@{
+    var debugMode = this.GetDebugMode();
+    if (debugMode)
+    {
+        <script>
+            require(['requireJsToast'], function (requireJsToast) {
+                requireJsToast.showAsyncScripts();
+            });
+        </script>
+    }
+}

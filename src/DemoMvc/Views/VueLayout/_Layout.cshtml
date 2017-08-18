@@ -1,0 +1,82 @@
+﻿@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - RequireJs VUE MPA</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/libs/vue/element-ui/index.css" rel="stylesheet" />
+    <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    <script src="~/content/libs/require.js"></script>
+    <script>
+        require.config({
+            paths: {
+                'jquery': '/Content/libs/jquery/jquery-2.1.0'
+                , 'toastr': '/Content/libs/toastr/toastr'
+                , 'bootstrap': '/Content/libs/bootstrap/bootstrap'
+                , 'zqnb': '/Content/scripts/zqnb'
+                , 'nbLog': '/Content/scripts/zqnb.log'
+                , 'vue': '/Content/libs/vue/js/vue'
+                , 'axios': '/Content/libs/vue/js/axios'
+                , 'httpVueLoader': '/Content/libs/vue/js/httpVueLoader'
+                , 'ELEMENT': '/Content/libs/vue/element-ui/index'
+                //1 因为index.js中模块名称已经定义为ELEMENT（大写）所以必须叫ELEMENT，不可以用其他名称
+                //2 在引用时需要写 Vue.use(ELEMENT);
+                , 'requireJsToast': '/Content/scripts/zqnb.common.requireJsToast'
+                , 'mainVueApp': '/Content/scripts/zqnb.mainVue'
+            },
+            shim: {
+                vue: {
+                    exports: "Vue"
+                }
+                , bootstrap: {
+                    deps: ["jquery"]
+                }
+                , httpVueLoader: {
+                    exports: "httpVueLoader"
+                    , deps: ["axios"]
+                }
+                , ELEMENT: {
+                    exports: "ELEMENT"
+                    , deps: ["vue"]
+                }
+            }
+        });
+
+        require(['vue', 'ELEMENT'], function (Vue, ELEMENT) {
+
+            Vue.use(ELEMENT);
+
+            // 注册
+            Vue.component('nb-demo-layout', {
+                props: ['text'],
+                template: '<div>Shared Component: {{text}}</div>'
+            });
+            
+            var vm = new Vue({
+                el: '#app'
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container" id="app">
+        @Html.Partial("_Menus")
+        @Html.Partial("_Breadcrumbs")
+        @RenderBody()
+        @Html.Partial("_Footer")
+
+        <div>
+            <nb-demo-layout text='from layout'></nb-demo-layout>
+        </div>
+    </div>
+
+    @*For Js Entry*@
+    @RenderSection("scripts", required: false)
+    @Html.RenderDelayed()
+    @Html.Partial("_RequireJsToast")
+</body>
+</html>
