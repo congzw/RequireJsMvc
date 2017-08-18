@@ -1,13 +1,11 @@
-#版本文件夹结构说明
+#Pilot how to use requirejs with vue, angular with mvc 
 
-##分支模型简介
+## Vue
 
-分支模型可以分为两类：
+## Angular1.x
 
-- repository scoped(git)
-- path scoped（tfvc）
 
-非git版本管理一般是以文件夹结构来组织分支(subversions, sourcesafe, tfvc, ect.)，所以建议根文件以下列结构组织
+##分支结构简介
 
 	- Master(Trunk, Main, etc.)
 		- /build
