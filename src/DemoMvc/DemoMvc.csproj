@@ -111,10 +111,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AngularLayoutController.cs" />
+    <Compile Include="Controllers\DelayedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VueLayout2Controller.cs" />
     <Compile Include="Controllers\VueLayoutController.cs" />
+    <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Extensions\HtmlRenderExtensions.cs" />
+    <Compile Include="Extensions\RazorExtensions.cs" />
     <Compile Include="Extensions\WebPageBaseExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -286,6 +289,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\VueLayout2\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Delayed\Index.cshtml" />
+    <Content Include="Views\Delayed\_Breadcrumbs.cshtml" />
+    <Content Include="Views\Delayed\_Footer.cshtml" />
+    <Content Include="Views\Delayed\_Layout.cshtml" />
+    <Content Include="Views\Delayed\_ViewStart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

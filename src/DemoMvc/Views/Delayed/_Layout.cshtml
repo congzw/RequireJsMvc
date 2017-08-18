@@ -1,0 +1,24 @@
+﻿@{
+    var da = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Delayed DEMO</title>
+    @*<link href="~/Content/css/bootstrap.css" rel="stylesheet"/>*@
+    @Url.CssTag("~/Content/css/bootstrap.css")
+</head>
+<body>
+    <div class="container">
+        @Html.Partial("_Menus")
+        @Html.Partial("_Breadcrumbs")
+        @RenderBody()
+        @Html.Partial("_Footer")
+    </div>
+    @RenderSection("scripts", required: false)
+    @Html.RenderDelayed()
+</body>
+</html>

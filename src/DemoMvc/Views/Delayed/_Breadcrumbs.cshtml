@@ -1,0 +1,20 @@
+﻿@{
+    var items = new[] { "one", "two", "three" };
+}
+
+<style>
+    #breadcrumbs {
+        background-color: green;
+    }
+</style>
+
+<div id="breadcrumbs">
+    @items.List(@<p>@item</p>)
+</div>
+
+@using (Html.Delayed())
+{
+    <script>
+        console.log('from _breadcrumbs');
+    </script>
+}
