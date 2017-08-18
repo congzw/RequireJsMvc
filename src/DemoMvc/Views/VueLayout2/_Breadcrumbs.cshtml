@@ -1,0 +1,32 @@
+﻿<div id="breadcrumbs" style="background-color: #ccc">
+    <p>This is breadcrumbs</p>
+    <nb-demo-layout text='from breadcrumbs'></nb-demo-layout>
+    <hr />
+    <nb-demo-breadcrumbs nb-items="items">复杂的组件</nb-demo-breadcrumbs>
+</div>
+
+@using (Html.Delayed())
+{
+    <script type="text/x-template" id="nb-demo-breadcrumbs">
+        <div>
+            <el-button v-for="item in items" key="item" type="primary">{{item}}</el-button>
+        </div>
+    </script>
+
+    <script>
+        require(['vue'], function (Vue) {
+
+            console.log('from _breadcrumbs');
+
+            Vue.component('nb-demo-breadcrumbs', {
+                template: '#nb-demo-breadcrumbs',
+                props: ['nbItems'],
+                data: function () {
+                    return {
+                        items: ['A', 'B','C']
+                    }
+                }
+            });
+        });
+    </script>
+}

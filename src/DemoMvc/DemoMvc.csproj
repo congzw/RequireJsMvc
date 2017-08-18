@@ -112,6 +112,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AngularLayoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VueLayout2Controller.cs" />
     <Compile Include="Controllers\VueLayoutController.cs" />
     <Compile Include="Extensions\HtmlRenderExtensions.cs" />
     <Compile Include="Extensions\WebPageBaseExtensions.cs" />
@@ -267,6 +268,24 @@
     <Content Include="Content\libs\Unify1.9\plugins\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Content\libs\vue\element-ui\fonts\element-icons.ttf" />
     <Content Include="Content\libs\vue\element-ui\fonts\element-icons.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueLayout2\_Breadcrumbs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueLayout2\_Footer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueLayout2\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueLayout2\_RequireJsToast.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueLayout2\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueLayout2\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,37 @@
+﻿<footer id="footer">
+    <p>This is Footer</p>
+    <nb-demo-layout text='from footer'></nb-demo-layout>
+    <hr />
+    <nb-demo-partial text='from footer'></nb-demo-partial>
+    <hr />
+    <el-button>饿了么组件</el-button>
+    <hr />
+    <nb-demo-x-template>复杂的组件</nb-demo-x-template>
+</footer>
+
+@using (Html.Delayed())
+{
+    <script type="text/x-template" id="hello-world-template">
+        <div>
+            <el-button>x-template</el-button>
+            <el-button type="primary">x-template</el-button>
+            <el-button type="text">x-template</el-button>
+        </div>
+    </script>
+    
+    <script>
+        require(['vue'], function (Vue) {
+
+            console.log('from _footer');
+            
+            Vue.component('nb-demo-partial', {
+                props: ['text'],
+                template: '<div>Partial Component: {{text}}</div>'
+            });
+
+            Vue.component('nb-demo-x-template', {
+                template: '#hello-world-template'
+            });
+        });
+    </script>
+}
