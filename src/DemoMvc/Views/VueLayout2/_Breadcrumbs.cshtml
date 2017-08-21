@@ -1,5 +1,6 @@
 ﻿@{
-    //var breadcrumbItems = ['A', 'B', 'C']; //todo read from razor
+    var breadcrumbItems = new string[] { "C#", "VB", "C++" };
+    
 }
 <div id="breadcrumbs" style="background-color: #ccc">
     <p>This is breadcrumbs</p>
@@ -20,19 +21,24 @@
         require(['vue'], function (Vue) {
 
             console.log('from _breadcrumbs');
-            
+
+
             Vue.component('nb-demo-breadcrumbs', {
                 name: 'nb-demo-breadcrumbs',
                 template: '#nb-demo-breadcrumbs',
                 props: ['items']
             });
-            
+
             require(['layoutVm'], function (layoutVm) {
+                
+                //todo read from razor
+                @*var demoJson = @breadcrumbItems.ToJson();*@ 
+
                 //read demo
                 console.log(layoutVm.breadcrumbItems);
 
                 //set demo
-                var breadcrumbItems = ['A', 'B', '3'];
+                var breadcrumbItems = ['1', '3', '3'];
                 layoutVm.breadcrumbItems = breadcrumbItems;
                 console.log(layoutVm.breadcrumbItems);
             });

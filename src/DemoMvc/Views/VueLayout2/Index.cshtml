@@ -1,1 +1,12 @@
 ﻿<h2>VueLayout Home Index</h2>
+
+@section scripts
+{
+    <script>
+        require(['layoutVm'], function (layoutVm) {
+            console.log('from home index');
+            //read demo
+            console.log(layoutVm.breadcrumbItems);
+        });
+    </script>
+}

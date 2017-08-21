@@ -11,66 +11,11 @@
     <link href="~/Content/libs/vue/element-ui/index.css" rel="stylesheet" />
     <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
     <script src="~/content/libs/require.js"></script>
-    <script>
-        require.config({
-            paths: {
-                'jquery': '/Content/libs/jquery/jquery-2.1.0',
-                'toastr': '/Content/libs/toastr/toastr',
-                'bootstrap': '/Content/libs/bootstrap/bootstrap',
-                'zqnb': '/Content/scripts/zqnb',
-                'nbLog': '/Content/scripts/zqnb.log',
-                'vue': '/Content/libs/vue/js/vue',
-                'axios': '/Content/libs/vue/js/axios',
-                'httpVueLoader': '/Content/libs/vue/js/httpVueLoader',
-                'ELEMENT': '/Content/libs/vue/element-ui/index'
-                //1 因为index.js中模块名称已经定义为ELEMENT（大写）所以必须叫ELEMENT，不可以用其他名称
-                //2 在引用时需要写 Vue.use(ELEMENT);
-                ,
-                'requireJsToast': '/Content/scripts/zqnb.common.requireJsToast',
-                'mainVueApp': '/Content/scripts/zqnb.mainVue'
-            },
-            shim: {
-                vue: {
-                    exports: "Vue"
-                },
-                bootstrap: {
-                    deps: ["jquery"]
-                },
-                httpVueLoader: {
-                    exports: "httpVueLoader",
-                    deps: ["axios"]
-                },
-                ELEMENT: {
-                    exports: "ELEMENT",
-                    deps: ["vue"]
-                }
-            }
-        });
-
-        define('layoutVm', ['vue', 'ELEMENT'], function (Vue, ELEMENT) {
-
-            //全局注册饿了么组件
-            Vue.use(ELEMENT);
-
-            //全局注册自己的组件
-            Vue.component('nb-demo-layout', {
-                props: ['text'],
-                template: '<div>Shared Component: {{text}}</div>'
-            });
-
-            //layoutVm声明于此
-            var layoutVm = new Vue({
-                el: '#app',
-                data: {
-                    breadcrumbItems: []
-                }
-            });
-            return layoutVm;
-        });
-    </script>
+    <script src="~/Content/scripts/space.config.js"></script>
+    <script src="~/Content/scripts/space.layout.js"></script>
 </head>
 <body>
-    <div class="container" id="app">
+    <div class="container" id="layout">
         @Html.Partial("_Menus")
         @Html.Partial("_Breadcrumbs")
         @RenderBody()
@@ -80,7 +25,6 @@
             <nb-demo-layout text='from layout'></nb-demo-layout>
         </div>
     </div>
-    @*For Js Entry*@
     @RenderSection("scripts", required: false)
     @Html.RenderDelayed()
     @Html.Partial("_RequireJsToast")

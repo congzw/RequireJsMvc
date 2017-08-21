@@ -224,6 +224,8 @@
     <Content Include="Content\scripts\mainApp.js" />
     <Content Include="Content\scripts\showScriptsLoading.js" />
     <Content Include="Content\scripts\space.entry.js" />
+    <Content Include="Content\scripts\space.config.js" />
+    <Content Include="Content\scripts\space.layout.js" />
     <Content Include="Content\scripts\vuepage.space.js" />
     <Content Include="Content\scripts\vuepage.index.js" />
     <Content Include="Content\scripts\zqnb.common.requireJsToast.js" />
