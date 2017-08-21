@@ -20,13 +20,10 @@
         @Html.Partial("_Breadcrumbs")
         @RenderBody()
         @Html.Partial("_Footer")
-
-        <div>
-            <nb-demo-layout text='from layout'></nb-demo-layout>
-        </div>
+        @Html.Partial("_WidgetDemo")
     </div>
     @RenderSection("scripts", required: false)
     @Html.RenderDelayed()
-    @Html.Partial("_RequireJsToast")
+    @*@Html.Partial("_RequireJsToast")*@
 </body>
 </html>

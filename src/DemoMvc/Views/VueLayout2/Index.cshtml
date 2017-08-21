@@ -1,12 +1,23 @@
-﻿<h2>VueLayout Home Index</h2>
-
+﻿<h2>VueLayout2 Home Index</h2>
+<hr />
+<div id="pageApp">
+    <h2>{{demo.content}}</h2>
+</div>
 @section scripts
 {
     <script>
-        require(['layoutVm'], function (layoutVm) {
+        require(['vue'], function (Vue) {
+
             console.log('from home index');
-            //read demo
-            console.log(layoutVm.breadcrumbItems);
+            var vm = new Vue({
+                el: '#pageApp',
+                data: {
+                    demo: {
+                        content: 'from home index, blah...'
+                    }
+                }
+            });
+            return vm;
         });
     </script>
 }
