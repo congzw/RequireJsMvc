@@ -114,6 +114,7 @@
     <Compile Include="Controllers\DelayedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VueLayout2Controller.cs" />
+    <Compile Include="Controllers\VuePageController.cs" />
     <Compile Include="Controllers\VueLayoutController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Extensions\HtmlRenderExtensions.cs" />
@@ -299,6 +300,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VuePage\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
