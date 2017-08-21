@@ -1,0 +1,65 @@
+﻿<treeitem v-bind:model="menuItem" index="index" v-for="(menuItem,index) in treeData"></treeitem>
+
+<template id="tree-item">
+    <ul class="el-menu" v-show="open" v-if="isFolder">
+        <li v-on:click.stop="toggle(model.type),selected=index" v-bind:class="{'el-submenu':isFolder,'el-menu-item':!isFolder,'is-active':selected==model.type}">
+            <a v-bind:href="model.url" v-bind:class="[isFolder? 'el-submenu__title':'']">
+                <i v-bind:class="model.icon" class="header-icon"></i>
+                {{model.name}}
+                <i v-show="isFolder" class="el-submenu__icon-arrow"
+                   v-bind:class="[open?' el-icon-arrow-up':'el-icon-arrow-down']"></i>
+            </a>
+            <transition enter-active-class="animated slideInDown" leave-active-class="animated slideInUp" mode="out-in">
+                <treeitem v-for="(cel,index) in model.children" v-bind:model="cel" v-bind:key="index" v-show="open" v-if="isFolder"></treeitem>
+            </transition>
+        </li>
+    </ul>
+</template>
+
+@using (Html.Delayed())
+{
+    <script type="text/x-template" id="nb-demo-breadcrumbs">
+        <div>
+            <el-button v-for="item in items" key="item" type="primary">{{item}}</el-button>
+        </div>
+    </script>
+
+    <script>
+        require(['vue'], function (Vue) {
+
+            console.log('from treeitem');
+
+            Vue.component('tree-item', {
+                name: 'treeitem',
+                template: '#tree-item',
+                props: {
+                    model: {
+                        type: Object
+                    }
+                },
+                data: function () {
+                    return {
+                        open: false,
+                        selected: 2
+                    }
+                },
+                computed: {
+                    isFolder: function () {
+                        return this.model.children && this.model.children.length;
+                    }
+                },
+                methods: {
+                    toggle: function () {
+                        if (this.isFolder) {
+                            this.open = !this.open;
+                        }
+                    }
+                }
+
+            });
+
+
+
+        });
+    </script>
+}

@@ -1,17 +1,14 @@
-﻿@{
-    this.Layout = null;
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - RequireJs VUE MPA</title>
-    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/libs/vue/element-ui/index.css" rel="stylesheet" />
-    <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
-    <script src="~/content/libs/require.js"></script>
+    <title>Demo</title>
+    <link href="/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/libs/vue/element-ui/index.css" rel="stylesheet" />
+    <link href="/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    <script src="/content/libs/require.js"></script>
     <script>
         require.config({
             paths: {
@@ -57,7 +54,7 @@
                 props: ['text'],
                 template: '<div>Shared Component: {{text}}</div>'
             });
-            
+
             Vue.component('greeting', {
                 template: '#greeting-template'
             });
@@ -77,8 +74,7 @@
 </head>
 <body>
     <div class="container" id="app">
-        @Html.Partial("_Menus")
-        <h2>VuePage Index</h2>
+        <h2>Demo Index</h2>
         <div id="breadcrumbs" style="background-color: #ccc">
             <p>This is breadcrumbs</p>
             <nb-demo-breadcrumbs v-bind:items="breadcrumbsData">面包屑</nb-demo-breadcrumbs>
@@ -86,7 +82,7 @@
         <div>
             <nb-demo-layout text='from layout'></nb-demo-layout>
         </div>
-        
+
         <template id="greeting-template">
             <h1>Welcome to coligo!</h1>
             <button>login</button>

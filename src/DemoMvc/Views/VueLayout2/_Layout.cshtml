@@ -47,20 +47,25 @@
             }
         });
 
-        require(['vue', 'ELEMENT'], function (Vue, ELEMENT) {
+        define('layoutVm', ['vue', 'ELEMENT'], function (Vue, ELEMENT) {
 
             //全局注册饿了么组件
             Vue.use(ELEMENT);
+
             //全局注册自己的组件
             Vue.component('nb-demo-layout', {
                 props: ['text'],
                 template: '<div>Shared Component: {{text}}</div>'
             });
 
-            //全局使用的模型声明于此
-            var vm = new Vue({
-                el: '#app'
+            //layoutVm声明于此
+            var layoutVm = new Vue({
+                el: '#app',
+                data: {
+                    breadcrumbItems: []
+                }
             });
+            return layoutVm;
         });
     </script>
 </head>

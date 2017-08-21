@@ -128,8 +128,18 @@
   <ItemGroup>
     <Content Include="Content\css\angular-csp.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\grkj-new.css" />
     <Content Include="Content\css\grkj.css" />
     <Content Include="Content\css\my-gzt-thumbnail.css" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\blue-1.jpg" />
+    <Content Include="Content\images\gmk.png" />
+    <Content Include="Content\images\jacc.png" />
+    <Content Include="Content\images\label-1.png" />
+    <Content Include="Content\images\label-2.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\tpk.png" />
+    <Content Include="Content\images\ztjy.png" />
     <Content Include="Content\libs\ace\assets\avatars\avatar.png" />
     <Content Include="Content\libs\ace\assets\avatars\avatar1.png" />
     <Content Include="Content\libs\ace\assets\avatars\avatar2.png" />
@@ -210,9 +220,12 @@
     <Content Include="Content\scripts\configForVue.js" />
     <Content Include="Content\scripts\home.index.js" />
     <Content Include="Content\scripts\home.part.js" />
+    <Content Include="Content\html\index.html" />
     <Content Include="Content\scripts\mainApp.js" />
     <Content Include="Content\scripts\showScriptsLoading.js" />
     <Content Include="Content\scripts\space.entry.js" />
+    <Content Include="Content\scripts\vuepage.space.js" />
+    <Content Include="Content\scripts\vuepage.index.js" />
     <Content Include="Content\scripts\zqnb.common.requireJsToast.js" />
     <Content Include="Content\scripts\zqnb.js" />
     <Content Include="Content\scripts\zqnb.log.js" />
@@ -303,6 +316,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\VuePage\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VuePage\Space.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VuePage\_SpaceMenu.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

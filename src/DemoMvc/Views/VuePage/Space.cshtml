@@ -1,0 +1,182 @@
+﻿@{
+    this.Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的工作台</title>
+    <link rel="stylesheet" href="http://192.168.1.210/Cdn/Content/libs/Unify1.9/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/libs/vue/element-ui/index.css">
+    <link rel="stylesheet" href="http://192.168.1.210/Cdn/Content/libs/vue/css/normalize.css">
+    <link rel="stylesheet" href="http://192.168.1.210/Cdn/Content/libs/Unify1.9/plugins/animate.css">
+    <link rel="stylesheet" href="~/Content/css/grkj-new.css" />
+    <script src="~/content/libs/require.js"></script>
+    <script>
+        require.config({
+            paths: {
+                'jquery': '/Content/libs/jquery/jquery-2.1.0',
+                'toastr': '/Content/libs/toastr/toastr',
+                'bootstrap': '/Content/libs/bootstrap/bootstrap',
+                'zqnb': '/Content/scripts/zqnb',
+                'nbLog': '/Content/scripts/zqnb.log',
+                'vue': '/Content/libs/vue/js/vue',
+                'axios': '/Content/libs/vue/js/axios',
+                'httpVueLoader': '/Content/libs/vue/js/httpVueLoader',
+                'ELEMENT': '/Content/libs/vue/element-ui/index'
+                //1 因为index.js中模块名称已经定义为ELEMENT（大写）所以必须叫ELEMENT，不可以用其他名称
+                //2 在引用时需要写 Vue.use(ELEMENT);
+                ,
+                'requireJsToast': '/Content/scripts/zqnb.common.requireJsToast',
+                'mainVueApp': '/Content/scripts/zqnb.mainVue'
+            },
+            shim: {
+                vue: {
+                    exports: "Vue"
+                },
+                bootstrap: {
+                    deps: ["jquery"]
+                },
+                httpVueLoader: {
+                    exports: "httpVueLoader",
+                    deps: ["axios"]
+                },
+                ELEMENT: {
+                    exports: "ELEMENT",
+                    deps: ["vue"]
+                }
+            }
+        });
+
+        require(['vue', 'ELEMENT'], function (Vue, ELEMENT) {
+
+            //全局注册饿了么组件
+            Vue.use(ELEMENT);
+            //全局注册自己的组件
+
+            //全局使用的模型声明于此
+            var vm = new Vue({
+                el: '#app'
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div class="grkj">
+            <div class="sidebar">
+                <div class="login-info">
+                    <div class="login-wrapper">
+                        <div class="logo-box">
+                            <img src="~/Content/images/logo.png" width="154" height="55" alt="">
+                        </div>
+                        <div class="avator-warpper">
+                            <div class="avator">
+                                <span class="fa fa-power-off icon"></span>
+                                <img src="http://192.168.1.210/Cdn/Content/libs/Unify1.9/img/testimonials/img1.jpg" alt="">
+                                <span class="fa fa fa-bell icon">
+                                    <em class="badge">3</em>
+                                </span>
+                            </div>
+                            <div class="avator-info">
+                                <h3>王晓旭</h3>
+                                <el-row type="flex" class="row-bg lists" justify="space-around">
+                                    <el-col v-bind:span="8">
+                                        <span>资源</span>6
+
+                                    </el-col>
+                                    <el-col v-bind:span="8">
+                                        <span>资源</span>10
+                                    </el-col>
+                                    <el-col v-bind:span="8">
+                                        <span>资源</span>8
+                                    </el-col>
+                                </el-row>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-list">
+                        @*<ul class="el-menu" v-for="(menuItem,index) in treeData">
+                            <treeitem v-bind:model="menuItem" index="index"></treeitem>
+                        </ul>*@
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="breadcrumbs">
+                    <el-breadcrumb separator="/">
+                        <el-breadcrumb-item>
+                            <a href="#">
+                                <i class="fa fa-home header-icon"></i>
+                                我的工作台
+                            </a>
+                        </el-breadcrumb-item>
+                    </el-breadcrumb>
+                    <a class="back-home">
+                        <span class="fa fa-reply-all"></span>
+                        返回平台首页
+                    </a>
+                </div>
+                <div class="toolbar-wrapper">
+                    <el-row v-bind:gutter="20">
+                        <!--dorpdown-->
+                        <el-col v-bind:sm="12">
+                            <el-dropdown class="dropdown">
+                                <el-button type="primary">
+                                    发起活动
+                                    <i class="el-icon-caret-bottom el-icon--right"></i>
+                                </el-button>
+                                <el-dropdown-menu slot="dropdown">
+                                    <el-dropdown-item><a href="www.baidu.com">发起活动</a></el-dropdown-item>
+                                    <el-dropdown-item><a href="#">狮子头</a></el-dropdown-item>
+                                    <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                                    <el-dropdown-item>双皮奶</el-dropdown-item>
+                                    <el-dropdown-item>蚵仔煎</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </el-dropdown>
+                            <el-dropdown class="dropdown">
+                                <el-button type="primary">
+                                    资源审核<i class="el-icon-caret-bottom el-icon--right"></i>
+                                </el-button>
+                                <el-dropdown-menu slot="dropdown">
+                                    <el-dropdown-item><a href="#">资源审核</a></el-dropdown-item>
+                                    <el-dropdown-item>狮子头</el-dropdown-item>
+                                    <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </el-dropdown>
+                        </el-col>
+                    </el-row>
+                </div>
+                <div class="main-content-inner">
+                    <div class="my-gzt-thumbnail">
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h4>我的工作安排</h4>
+                            </div>
+                            <div class="panel-body">
+                                <el-row v-bind:gutter="50">
+                                    @*<el-col v-bind:md="6" v-for="thumbnail in thumbnailsData" key="thumbnail">
+                                        <div class="thumbnail-wrapper" v-bind:class="thumbnail.stateClass">
+                                            <div class="thumbnail-content">
+                                                <h4 v-cloak>{{thumbnail.title}}</h4>
+                                                <div class="caption">
+                                                    <span class="label" v-bind:class="thumbnail.stateClass" v-cloak>{{thumbnail.state}}</span>
+                                                    <ul class="lists">
+                                                        <li><a href="#" v-cloak><i class="dot"></i>{{thumbnail.text1}}</a></li>
+                                                        <li><a href="#" v-cloak><i class="dot"></i>{{thumbnail.text2}}</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </el-col>*@
+                                </el-row>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

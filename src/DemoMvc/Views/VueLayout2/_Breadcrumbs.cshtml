@@ -1,8 +1,11 @@
-﻿<div id="breadcrumbs" style="background-color: #ccc">
+﻿@{
+    //var breadcrumbItems = ['A', 'B', 'C']; //todo read from razor
+}
+<div id="breadcrumbs" style="background-color: #ccc">
     <p>This is breadcrumbs</p>
     <nb-demo-layout text='from breadcrumbs'></nb-demo-layout>
     <hr />
-    <nb-demo-breadcrumbs nb-items="items">复杂的组件</nb-demo-breadcrumbs>
+    <nb-demo-breadcrumbs v-bind:items="this.breadcrumbItems">复杂的组件</nb-demo-breadcrumbs>
 </div>
 
 @using (Html.Delayed())
@@ -17,15 +20,21 @@
         require(['vue'], function (Vue) {
 
             console.log('from _breadcrumbs');
-
+            
             Vue.component('nb-demo-breadcrumbs', {
+                name: 'nb-demo-breadcrumbs',
                 template: '#nb-demo-breadcrumbs',
-                props: ['nbItems'],
-                data: function () {
-                    return {
-                        items: ['A', 'B','C']
-                    }
-                }
+                props: ['items']
+            });
+            
+            require(['layoutVm'], function (layoutVm) {
+                //read demo
+                console.log(layoutVm.breadcrumbItems);
+
+                //set demo
+                var breadcrumbItems = ['A', 'B', '3'];
+                layoutVm.breadcrumbItems = breadcrumbItems;
+                console.log(layoutVm.breadcrumbItems);
             });
         });
     </script>
