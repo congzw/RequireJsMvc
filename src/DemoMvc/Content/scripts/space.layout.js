@@ -1,5 +1,6 @@
 ﻿define('layoutVm', ['vue', 'ELEMENT'], function (Vue, ELEMENT) {
 
+    console.log('from layout define');
     //全局注册饿了么组件
     Vue.use(ELEMENT);
 
@@ -17,3 +18,8 @@
     });
     return layoutVm;
 });
+
+require(['layoutVm'], function (layoutVm) {
+
+    console.log('from layout require');    console.log(layoutVm);
+});

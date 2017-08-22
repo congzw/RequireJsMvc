@@ -1,0 +1,40 @@
+﻿<h2>VueLayout2 Home Index</h2>
+<hr />
+<div is="pageApp"></div>
+<page-app></page-app>
+
+
+@section scripts
+{
+    <script type="text/x-template" id="pageAppTemplate">
+        <div>
+            <h2>{{demo.content}}</h2>
+            <input type='text' v-model='demo.content' />
+        </div>
+    </script>
+    <script>
+    require(['vue'], function (Vue) {
+
+        var value = 0;
+        for (var i = 0; i < 1000000; i++) {
+            value = value + i;
+        }
+
+        console.log('from home index: ' + value);
+
+        Vue.component('pageApp', {
+            // 选项
+            name: 'page-app',
+            @*template: "@tempalteValue",*@
+            template: "#pageAppTemplate",
+            data: function () {
+                return {
+                    demo: {
+                        content: 'from home index, blah...'
+                    }
+                }
+            }
+        });
+    });
+    </script>
+}

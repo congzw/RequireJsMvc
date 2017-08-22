@@ -8,5 +8,13 @@ namespace DemoMvc.Controllers
         {
             return View();
         }
+        public ActionResult TemplateInline()
+        {
+            return View();
+        }
+        public ActionResult TemplateJs()
+        {
+            return View();
+        }
     }
 }
