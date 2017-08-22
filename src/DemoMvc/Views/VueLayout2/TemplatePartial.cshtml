@@ -1,0 +1,34 @@
+﻿<h2>VueLayout2 Home Index</h2>
+<hr />
+<div is="pageApp"></div>
+<page-app></page-app>
+
+
+@section scripts
+{
+    <script>
+    //require(['vue'], function (Vue) {
+     require(['vue', 'text!/Content/scripts/_breadcrumbs.html'], function (Vue, _breadcrumbs) {
+        var value = 0;
+        for (var i = 0; i < 1000000; i++) {
+            value = value + i;
+        }
+
+        console.log('from home index: ' + value);
+        console.log(_breadcrumbs);
+        Vue.component('pageApp', {
+            // 选项
+            name: 'page-app',
+            @*template: "@tempalteValue",*@
+            template: _breadcrumbs,
+            data: function () {
+                return {
+                    demo: {
+                        content: 'from home index, blah...'
+                    }
+                }
+            }
+        });
+    });
+    </script>
+}

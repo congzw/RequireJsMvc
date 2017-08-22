@@ -16,5 +16,9 @@ namespace DemoMvc.Controllers
         {
             return View();
         }
+        public ActionResult TemplatePartial()
+        {
+            return View();
+        }
     }
 }

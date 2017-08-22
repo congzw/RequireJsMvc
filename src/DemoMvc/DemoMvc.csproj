@@ -211,6 +211,7 @@
     <Content Include="Content\libs\vue\js\less.min.js" />
     <Content Include="Content\libs\vue\js\new-httploader\httpVueLoader.js" />
     <Content Include="Content\libs\vue\js\require.js" />
+    <Content Include="Content\libs\vue\js\text.js" />
     <Content Include="Content\libs\vue\js\vue-router.js" />
     <Content Include="Content\libs\vue\js\vue.js" />
     <Content Include="Content\scripts\angular.index.js" />
@@ -226,6 +227,7 @@
     <Content Include="Content\scripts\space.entry.js" />
     <Content Include="Content\scripts\space.config.js" />
     <Content Include="Content\scripts\space.layout.js" />
+    <Content Include="Content\scripts\_breadcrumbs.html" />
     <Content Include="Content\scripts\vuepage.space.js" />
     <Content Include="Content\scripts\vuepage.index.js" />
     <Content Include="Content\scripts\zqnb.common.requireJsToast.js" />
@@ -333,6 +335,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\VueLayout2\TemplateInline.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueLayout2\TemplatePartial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

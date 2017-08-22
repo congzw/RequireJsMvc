@@ -13,7 +13,8 @@
         //2 在引用时需要写 Vue.use(ELEMENT);
         ,
         'requireJsToast': '/Content/scripts/zqnb.common.requireJsToast',
-        'spaceLayout': '/Content/scripts/space.layout'
+        'spaceLayout': '/Content/scripts/space.layout',
+        'text': '/Content/libs/vue/js/text'
     },
     shim: {
         vue: {
