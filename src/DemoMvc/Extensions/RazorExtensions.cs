@@ -1,13 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.WebPages;
+using Microsoft.Ajax.Utilities;
 
 namespace DemoMvc.Extensions
 {
     public static class RazorExtensions
     {
+        public static IHtmlString VueTemplate(this HtmlHelper htmlHelper, string htmlContent, bool replaceSingleQuotes = true)
+        {
+            return htmlContent.ToVueTemplate(replaceSingleQuotes);
+        }
+
+        public static IHtmlString ToVueTemplate(this string value, bool replaceSingleQuotes = true)
+        {
+            #region demos
+            //template: '\
+            //    <span>\
+            //      $\
+            //      <input\
+            //        ref="input"\
+            //        v-bind:value="value"\
+            //        v-on:input="updateValue($event.target.value)"\
+            //      >\
+            //    </span>\
+            //  ',
+
+            //1 replace ' with "
+            //2 append line with \
+            #endregion
+
+            if (value.IsNullOrWhiteSpace())
+            {
+                return new HtmlString(string.Empty);
+            }
+
+            var stringBuilder = new StringBuilder();
+            using (var reader = new StringReader(value))
+            {
+                for (string line = reader.ReadLine(); line != null; line = reader.ReadLine())
+                {
+                    if (replaceSingleQuotes)
+                    {
+                        stringBuilder.AppendLine(line.Replace('\'', '"') + '\\');
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLine(line + '\\');
+                    }
+                }
+            }
+            return new HtmlString(stringBuilder.ToString());
+        }
+
         public static IHtmlString ScriptTag(this HtmlHelper htmlHelper, string url, bool render = true)
         {
             var urlHelper = new UrlHelper(htmlHelper.ViewContext.RequestContext);

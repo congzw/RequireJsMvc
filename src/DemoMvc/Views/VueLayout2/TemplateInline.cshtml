@@ -1,14 +1,21 @@
 ﻿<h2>VueLayout2 Home Index</h2>
 <hr />
 
-
 <div is="pageApp"></div>
 <page-app></page-app>
 
 @{
-    var tempalteValue = Html.Raw(@"<div>    <h2>{{demo.content}}</h2>    <input type='text' v-model='demo.content' /></div>");
-}
+    //var tempalteValue = Html.Raw(@"<div>    <h2>{{demo.content}}</h2>    <input type='text' v-model='demo.content' /></div>");
+//    var tempalteValue = Html.VueTemplate(@"<div>
+//            <h2>{{demo.content}}</h2>
+//            <input type='text' v-model='demo.content' />
+//        </div>");
 
+    var tempalteValue = @"<div>
+            <h2>{{demo.content}}</h2>
+            <input type='text' v-model='demo.content' />
+        </div>".ToVueTemplate();
+}
 
 @section scripts
 {
@@ -25,7 +32,7 @@
             Vue.component('pageApp', {
                 // 选项
                 name: 'page-app',
-                template: "@tempalteValue",
+                template: '@tempalteValue',
                 data: function () {
                     return {
                         demo: {
