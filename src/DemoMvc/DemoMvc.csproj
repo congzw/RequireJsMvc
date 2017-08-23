@@ -230,6 +230,7 @@
     <Content Include="Content\scripts\space.config.js" />
     <Content Include="Content\scripts\demo.layout.js" />
     <Content Include="Content\scripts\space.layout.js" />
+    <Content Include="Content\scripts\_tree.html" />
     <Content Include="Content\scripts\_breadcrumbs.html" />
     <Content Include="Content\scripts\vuepage.space.js" />
     <Content Include="Content\scripts\vuepage.index.js" />
@@ -239,6 +240,7 @@
     <Content Include="Content\scripts\zqnb.mainVue.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="tree.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -350,6 +352,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\VueDemo\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueDemo\TreePartial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

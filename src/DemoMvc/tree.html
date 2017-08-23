@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Parital DEMO</title>
+    <link href="/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/libs/vue/element-ui/index.css" rel="stylesheet" />
+    <link href="/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    <script src="/content/libs/require.js"></script>
+    <script src="/Content/scripts/demo.config.js"></script>
+    <script src="/Content/scripts/demo.layout.js"></script>
+</head>
+<body>
+    <div class="container" id="layout">
+        <ul>
+            <item class="item" v-bind:model="demoTree"></item>
+        </ul>
+    </div>
+
+    <script>
+        require(['vue', 'text!/Content/scripts/_tree.html'], function (Vue, _tree) {
+            console.log('from tree');
+
+            var treeData = {
+                name: 'Default',
+                children: [
+                  { name: 'hello' },
+                  { name: 'wat' },
+                  {
+                      name: 'child folder',
+                      children: [
+                        {
+                            name: 'child folder',
+                            children: [
+                              { name: 'hello' },
+                              { name: 'wat' }
+                            ]
+                        },
+                        { name: 'hello' },
+                        { name: 'wat' },
+                        {
+                            name: 'child folder',
+                            children: [
+                              { name: 'hello' },
+                              { name: 'wat' }
+                            ]
+                        }
+                      ]
+                  }
+                ]
+            };
+
+            // define the item component
+            Vue.component('item', {
+                template: _tree,
+                props: {
+                    model: {
+                        type: Object,
+                        default: function () {
+                            return treeData;
+                        }
+                    }
+                },
+                data: function () {
+                    return {
+                        open: false
+                    };
+                },
+                computed: {
+                    isFolder: function () {
+                        return this.model.children &&
+                          this.model.children.length;
+                    }
+                },
+                methods: {
+                    toggle: function () {
+                        if (this.isFolder) {
+                            this.open = !this.open;
+                        }
+                    },
+                    changeType: function () {
+                        if (!this.isFolder) {
+                            Vue.set(this.model, 'children', []);
+                            this.addChild();
+                            this.open = true;
+                        }
+                    },
+                    addChild: function () {
+                        this.model.children.push({
+                            name: 'new stuff'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

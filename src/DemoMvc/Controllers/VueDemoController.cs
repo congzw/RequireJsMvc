@@ -8,5 +8,9 @@ namespace DemoMvc.Controllers
         {
             return View();
         }
+        public ActionResult TreePartial()
+        {
+            return View();
+        }
     }
 }
