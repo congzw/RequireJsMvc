@@ -1,0 +1,26 @@
+﻿@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DEMOS</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/libs/vue/element-ui/index.css" rel="stylesheet" />
+    <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    <script src="~/content/libs/require.js"></script>
+    <script src="~/Content/scripts/demo.config.js"></script>
+    <script src="~/Content/scripts/demo.layout.js"></script>
+</head>
+<body>
+    <div class="container" id="layout">
+        @Html.Partial("_Menus")
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+    @Html.RenderDelayed()
+    @*@Html.Partial("_RequireJsToast")*@
+</body>
+</html>

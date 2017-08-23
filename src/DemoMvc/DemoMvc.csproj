@@ -112,6 +112,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AngularLayoutController.cs" />
     <Compile Include="Controllers\DelayedController.cs" />
+    <Compile Include="Controllers\VueDemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VueLayout2Controller.cs" />
     <Compile Include="Controllers\VuePageController.cs" />
@@ -224,8 +225,10 @@
     <Content Include="Content\html\index.html" />
     <Content Include="Content\scripts\mainApp.js" />
     <Content Include="Content\scripts\showScriptsLoading.js" />
+    <Content Include="Content\scripts\demo.config.js" />
     <Content Include="Content\scripts\space.entry.js" />
     <Content Include="Content\scripts\space.config.js" />
+    <Content Include="Content\scripts\demo.layout.js" />
     <Content Include="Content\scripts\space.layout.js" />
     <Content Include="Content\scripts\_breadcrumbs.html" />
     <Content Include="Content\scripts\vuepage.space.js" />
@@ -338,6 +341,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\VueLayout2\TemplatePartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueDemo\Tree.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueDemo\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueDemo\_ViewStart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
