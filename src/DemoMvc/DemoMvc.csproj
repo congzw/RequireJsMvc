@@ -240,6 +240,7 @@
     <Content Include="Content\scripts\zqnb.mainVue.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="TreeMenus.html" />
     <Content Include="tree.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -355,6 +356,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\VueDemo\TreePartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VueDemo\MenuTree.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Delayed\_Foo.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

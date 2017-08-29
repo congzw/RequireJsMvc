@@ -8,16 +8,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Delayed DEMO</title>
-    @*<link href="~/Content/css/bootstrap.css" rel="stylesheet"/>*@
     @Url.CssTag("~/Content/css/bootstrap.css")
+    @RenderSection("styles", false)
 </head>
 <body>
-    <div class="container">
-        @Html.Partial("_Menus")
-        @Html.Partial("_Breadcrumbs")
-        @RenderBody()
-        @Html.Partial("_Footer")
-    </div>
+<div class="container">
+    @Html.Partial("_Menus")
+    @Html.Partial("_Breadcrumbs")
+    @RenderBody()
+    @Html.Partial("_Footer")
+    @Html.Partial("_Foo")
+
+
+</div>
+    @Html.RenderDelayed("partial_styles")
     @RenderSection("scripts", required: false)
     @Html.RenderDelayed()
 </body>

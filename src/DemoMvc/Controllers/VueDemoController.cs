@@ -12,5 +12,10 @@ namespace DemoMvc.Controllers
         {
             return View();
         }
+
+        public ActionResult MenuTree()
+        {
+            return View();
+        }
     }
 }

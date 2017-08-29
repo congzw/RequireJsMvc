@@ -1,18 +1,20 @@
-﻿<div id="footer">
-    <p>This is Footer</p>
+﻿<div id="fromFoo">
+    <p>This is _foo</p>
 </div>
+
 @using (Html.Delayed("partial_styles"))
 {
     <style>
-        #footer {
+        #fromFoo {
             background-color: #ff0000;
         }
     </style>
 }
+
 @using (Html.Delayed())
 {
     <script>
-        console.log('from _footer');
+        console.log('from _foo');
     </script>
 }
 
