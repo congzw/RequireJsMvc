@@ -31,7 +31,6 @@
                 </tr>
             }
 
-
         </tbody>
     </table>
 }
@@ -49,8 +48,9 @@
 </head>
 <body>
     <div class="container">
+        @Html.Partial("_Menus")
         @RenderBody()
-        <hr/>
+        <hr />
         @showConfig(requireJsConfig)
         <footer>
             <p>&copy; @DateTime.Now.Year - RequireJs DEMO</p>
