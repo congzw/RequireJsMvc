@@ -45,6 +45,8 @@
     <Compile Include="Web\JoinConfigs\JoinJsConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\JoinConfigs\JoinJsConfigEntry.cs" />
+    <Compile Include="Web\JoinConfigs\JoinJsConfigRegistry.cs" />
+    <Compile Include="Web\JoinConfigs\JoinJsConfigRegistryExtensions_RequireJs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

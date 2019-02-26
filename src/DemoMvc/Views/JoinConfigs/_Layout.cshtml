@@ -1,6 +1,6 @@
 ﻿@using CommonFx.Web.JoinConfigs
 @{
-    var requireJsConfig = JoinJsConfig.Instance;
+    var requireJsConfig = JoinJsConfigRegistry.Instance.RequireJs();
     var configPath = requireJsConfig.JoinJsConfigVirtualPath;
     
     //mock invoke init logic in application_start
@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-        @foreach (var entry in config.RequireJsConfigEntries.Values)
+        @foreach (var entry in config.Entries.Values)
         {
             <tr>
                 <th scope="row">@(index++)</th>
