@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommonFx.RequireJs
+namespace CommonFx.Web.JoinConfigs
 {
-    public class RequireJsConfig
+    public class JoinJsConfig
     {
-        public RequireJsConfig()
+        public JoinJsConfig()
         {
-            RequireJsConfigEntries = new Dictionary<string, RequireJsConfigEntry>(StringComparer.OrdinalIgnoreCase);
+            RequireJsConfigEntries = new Dictionary<string, JoinJsConfigEntry>(StringComparer.OrdinalIgnoreCase);
         }
 
-        public Dictionary<string, RequireJsConfigEntry> RequireJsConfigEntries { get; set; }
+        public Dictionary<string, JoinJsConfigEntry> RequireJsConfigEntries { get; set; }
 
-        public RequireJsConfig AddOrReplace(string uniqueName, string virutalPath, string desc = null)
+        public JoinJsConfig AddOrReplace(string uniqueName, string virutalPath, string desc = null)
         {
             if (!RequireJsConfigEntries.ContainsKey(uniqueName))
             {
                 //add
-                RequireJsConfigEntries[uniqueName] = new RequireJsConfigEntry() { UniqueName = uniqueName, VirtualPath = virutalPath, Desc = desc };
+                RequireJsConfigEntries[uniqueName] = new JoinJsConfigEntry() { UniqueName = uniqueName, VirtualPath = virutalPath, Desc = desc };
                 return this;
             }
 
@@ -87,7 +87,7 @@ namespace CommonFx.RequireJs
         private IFileServer _fileServer;
         public IFileServer FileServer
         {
-            get { return _fileServer ?? (_fileServer = CommonFx.FileServer.Resolve()); }
+            get { return _fileServer ?? (_fileServer = Web.FileServer.Resolve()); }
             set { _fileServer = value; }
         }
 
@@ -99,13 +99,6 @@ namespace CommonFx.RequireJs
         }
 
 
-        public static RequireJsConfig Instance = new RequireJsConfig();
-    }
-
-    public class RequireJsConfigEntry
-    {
-        public string UniqueName { get; set; }
-        public string VirtualPath { get; set; }
-        public string Desc { get; set; }
+        public static JoinJsConfig Instance = new JoinJsConfig();
     }
 }

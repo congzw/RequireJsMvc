@@ -1,14 +1,16 @@
-﻿@using CommonFx.RequireJs
+﻿@using CommonFx.Web.JoinConfigs
 @{
-    var requireJsConfig = RequireJsConfig.Instance;
+    var requireJsConfig = JoinJsConfig.Instance;
+    var configPath = requireJsConfig.JoinJsConfigVirtualPath;
+    
+    //mock invoke init logic in application_start
     requireJsConfig.JoinJsConfigVirtualPath = "~/Content/scripts/JoinConfigs/app_config_join.js";
     requireJsConfig.AddOrReplace("app_config_common", "~/Content/scripts/JoinConfigs/app_config_common.js", "通用配置");
     requireJsConfig.AddOrReplace("app_config_area1", "~/Content/scripts/JoinConfigs/app_config_area1.js", "模块1的模拟配置");
     requireJsConfig.AddOrReplace("app_config_area2", "~/Content/scripts/JoinConfigs/app_config_area2.js", "模块2的模拟配置");
     requireJsConfig.JoinJsConfigInit();
-    var configPath = requireJsConfig.JoinJsConfigVirtualPath;
 }
-@helper showConfig(RequireJsConfig config)
+@helper showConfig(JoinJsConfig config)
 {
     var index = 1;
     <table class="table table-hover">
@@ -21,17 +23,23 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var entry in config.RequireJsConfigEntries.Values)
-            {
-                <tr>
-                    <th scope="row">@(index++)</th>
-                    <td>@entry.Desc</td>
-                    <td>@entry.UniqueName</td>
-                    <td>@entry.VirtualPath</td>
-                </tr>
-            }
-
-        </tbody>
+        @foreach (var entry in config.RequireJsConfigEntries.Values)
+        {
+            <tr>
+                <th scope="row">@(index++)</th>
+                <td>@entry.UniqueName</td>
+                <td>@entry.Desc</td>
+                <td>@entry.VirtualPath</td>
+            </tr>
+        }
+        </tbody><tfoot>
+    <tr>
+        <td></td>
+        <td>@Path.GetFileNameWithoutExtension(config.JoinJsConfigVirtualPath)</td>
+        <td>合并后的配置文件</td>
+        <td>@config.JoinJsConfigVirtualPath</td>
+    </tr>
+</tfoot>
     </table>
 }
 <!DOCTYPE html>

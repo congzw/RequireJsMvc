@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Web.Hosting;
 
-namespace CommonFx
+namespace CommonFx.Web
 {
     public interface IFileServer
     {
