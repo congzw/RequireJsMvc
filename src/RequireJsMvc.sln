@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{22AF6EC2-721
 		..\readme.md = ..\readme.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonFx.RequireJs", "CommonFx.RequireJs\CommonFx.RequireJs.csproj", "{74BE1B6B-574A-4010-8AC9-ACF1A326DDE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{15E4A1E4-245C-4248-9CE8-97BDAE0D08DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15E4A1E4-245C-4248-9CE8-97BDAE0D08DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15E4A1E4-245C-4248-9CE8-97BDAE0D08DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74BE1B6B-574A-4010-8AC9-ACF1A326DDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BE1B6B-574A-4010-8AC9-ACF1A326DDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BE1B6B-574A-4010-8AC9-ACF1A326DDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BE1B6B-574A-4010-8AC9-ACF1A326DDE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

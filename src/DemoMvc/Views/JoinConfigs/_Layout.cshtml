@@ -1,0 +1,62 @@
+﻿@using CommonFx.RequireJs
+@{
+    var requireJsConfig = RequireJsConfig.Instance;
+    requireJsConfig.JoinJsConfigVirtualPath = "~/Content/scripts/JoinConfigs/app_config_join.js";
+    requireJsConfig.AddOrReplace("app_config_common", "~/Content/scripts/JoinConfigs/app_config_common.js", "通用配置");
+    requireJsConfig.AddOrReplace("app_config_area1", "~/Content/scripts/JoinConfigs/app_config_area1.js", "模块1的模拟配置");
+    requireJsConfig.AddOrReplace("app_config_area2", "~/Content/scripts/JoinConfigs/app_config_area2.js", "模块2的模拟配置");
+    requireJsConfig.JoinJsConfigInit();
+    var configPath = requireJsConfig.JoinJsConfigVirtualPath;
+}
+@helper showConfig(RequireJsConfig config)
+{
+    var index = 1;
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>UniqueName</th>
+                <th>Desc</th>
+                <th>VirtualPath</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in config.RequireJsConfigEntries.Values)
+            {
+                <tr>
+                    <th scope="row">@(index++)</th>
+                    <td>@entry.Desc</td>
+                    <td>@entry.UniqueName</td>
+                    <td>@entry.VirtualPath</td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - RequireJs DEMO</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    <script src="~/content/libs/require.js"></script>
+    <script src="@Url.Content(configPath)"></script>
+</head>
+<body>
+    <div class="container">
+        @RenderBody()
+        <hr/>
+        @showConfig(requireJsConfig)
+        <footer>
+            <p>&copy; @DateTime.Now.Year - RequireJs DEMO</p>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
+    @Html.Partial("_Debug")
+</body>
+</html>

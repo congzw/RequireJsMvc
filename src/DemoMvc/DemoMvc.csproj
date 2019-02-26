@@ -112,6 +112,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AngularLayoutController.cs" />
     <Compile Include="Controllers\DelayedController.cs" />
+    <Compile Include="Controllers\JoinConfigsController.cs" />
     <Compile Include="Controllers\VueDemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VueLayout2Controller.cs" />
@@ -219,7 +220,12 @@
     <Content Include="Content\scripts\config.js" />
     <Content Include="Content\scripts\configForAce.js" />
     <Content Include="Content\scripts\configForAngular.js" />
+    <Content Include="Content\scripts\JoinConfigs\app_config_common.js" />
     <Content Include="Content\scripts\configForVue.js" />
+    <Content Include="Content\scripts\JoinConfigs\app_config_area2.js" />
+    <Content Include="Content\scripts\JoinConfigs\app_config_area1.js" />
+    <Content Include="Content\scripts\JoinConfigs\echarts.min.js" />
+    <Content Include="Content\scripts\JoinConfigs\MyClock.js" />
     <Content Include="Content\scripts\home.index.js" />
     <Content Include="Content\scripts\home.part.js" />
     <Content Include="Content\html\index.html" />
@@ -362,6 +368,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Delayed\_Foo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\JoinConfigs\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\JoinConfigs\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\JoinConfigs\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonFx.RequireJs\CommonFx.RequireJs.csproj">
+      <Project>{74be1b6b-574a-4010-8ac9-acf1a326dde1}</Project>
+      <Name>CommonFx.RequireJs</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
